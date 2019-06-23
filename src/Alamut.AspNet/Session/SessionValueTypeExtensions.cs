@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http;
 
-namespace Alamut.Utilities.AspNet.Session
+namespace Alamut.AspNet.Session
 {
     /// <summary>
     /// provide ASP.NET Core session helpers to save and retrieve value types

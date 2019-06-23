@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace Alamut.Utilities.AspNet.Test.Helpers
+namespace Alamut.AspNet.Test.Helpers
 {
     public class MockSession : ISession
     {

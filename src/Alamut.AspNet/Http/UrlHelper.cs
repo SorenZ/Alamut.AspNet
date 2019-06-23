@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Alamut.Utilities.AspNet.Http
+namespace Alamut.AspNet.Http
 {
     public static class UrlHelper
     {

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Alamut.Utilities.AspNet.Sut
+namespace Alamut.AspNet.Sut
 {
     public class Startup
     {

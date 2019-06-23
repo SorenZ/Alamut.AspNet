@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace Alamut.Utilities.AspNet.ExceptionMiddleware
+namespace Alamut.AspNet.ExceptionMiddleware
 {
     /// <summary>
     /// provide custom error handling response for web api.

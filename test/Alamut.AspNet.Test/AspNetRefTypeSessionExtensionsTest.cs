@@ -1,9 +1,9 @@
-using Alamut.Utilities.AspNet.Test.Helpers;
+using Alamut.AspNet.Test.Helpers;
 using Microsoft.AspNetCore.Http;
 using Xunit;
-using Alamut.Utilities.AspNet.Session;
+using Alamut.AspNet.Session;
 
-namespace Alamut.Utilities.AspNet.Test
+namespace Alamut.AspNet.Test
 {
     public class AspNetRefTypeSessionExtensionsTest
     {

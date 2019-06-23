@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Alamut.Utilities.AspNet.Test.Helpers
+namespace Alamut.AspNet.Test.Helpers
 {
     public class RefTypeObject : IEquatable<RefTypeObject>
     {

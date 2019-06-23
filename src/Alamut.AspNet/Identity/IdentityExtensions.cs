@@ -2,7 +2,7 @@
 using Alamut.Data.Structure;
 using Microsoft.AspNetCore.Identity;
 
-namespace Alamut.Utilities.AspNet.Identity
+namespace Alamut.AspNet.Identity
 {
     public static class IdentityExtensions
     {

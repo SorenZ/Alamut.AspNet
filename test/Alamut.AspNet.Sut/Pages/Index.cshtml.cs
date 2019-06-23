@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Alamut.Utilities.AspNet.Sut.Pages
+namespace Alamut.AspNet.Sut.Pages
 {
     public class IndexModel : PageModel
     {

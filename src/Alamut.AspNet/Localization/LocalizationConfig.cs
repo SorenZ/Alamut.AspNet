@@ -3,7 +3,7 @@
 //using System.Linq;
 //using Alamut.Helpers.Localization;
 
-//namespace Alamut.Utilities.AspNet.Localization
+//namespace Alamut.AspNet.Localization
 //{
 //    /// <summary>
 //    /// provide localization service configuration model

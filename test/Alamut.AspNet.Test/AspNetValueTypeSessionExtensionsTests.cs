@@ -1,12 +1,12 @@
-﻿using Alamut.Utilities.AspNet.Test.Helpers;
+﻿using Alamut.AspNet.Test.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
-using Alamut.Utilities.AspNet.Session;
+using Alamut.AspNet.Session;
 using System;
 
-namespace Alamut.Utilities.AspNet.Test
+namespace Alamut.AspNet.Test
 {
     public class AspNetValueTypeSessionExtensionsTests
     {

@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace Alamut.Utilites.AspNet.Test
+namespace Alamut.AspNet.Test
 {
     public class BasicTests
     {
-        private readonly WebApplicationFactory<Alamut.Utilities.AspNet.Sut.Startup> _sut;
+        private readonly WebApplicationFactory<Alamut.AspNet.Sut.Startup> _sut;
 
         public BasicTests()
         {
-            _sut = new WebApplicationFactory<Alamut.Utilities.AspNet.Sut.Startup>();
+            _sut = new WebApplicationFactory<Alamut.AspNet.Sut.Startup>();
         }
 
         [Fact]

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Alamut.Utilities.AspNet.Sut.Pages
+namespace Alamut.AspNet.Sut.Pages
 {
     public class PrivacyModel : PageModel
     {

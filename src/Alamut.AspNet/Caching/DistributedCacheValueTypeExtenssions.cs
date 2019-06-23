@@ -2,7 +2,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
 
-namespace Alamut.Utilities.AspNet.Caching
+namespace Alamut.AspNet.Caching
 {
     /// <summary>
     /// implements missed distributed cache methods for ValueTypes with the help of MemoryStream

@@ -1,7 +1,7 @@
 ﻿//using System.Linq;
 //using Alamut.Data.Entity;
 
-//namespace Alamut.Utilities.Localization
+//namespace Alamut.Localization
 //{
 //    public static class LocalizationExtensions
 //    {

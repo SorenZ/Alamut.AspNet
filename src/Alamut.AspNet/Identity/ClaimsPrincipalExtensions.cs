@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Claims;
 
-namespace Alamut.Utilities.AspNet.Identity
+namespace Alamut.AspNet.Identity
 {
     public static class ClaimsPrincipalExtensions 
     {

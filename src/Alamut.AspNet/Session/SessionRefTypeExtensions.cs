@@ -2,7 +2,7 @@ using System;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace Alamut.Utilities.AspNet.Session
+namespace Alamut.AspNet.Session
 {
     public static class SessionRefTypeExtensions
     {

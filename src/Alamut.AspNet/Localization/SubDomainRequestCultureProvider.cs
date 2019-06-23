@@ -1,9 +1,9 @@
 ﻿//using System;
 //using System.Threading.Tasks;
-//using Alamut.Utilities.AspNet.Http;
+//using Alamut.AspNet.Http;
 //using Microsoft.AspNetCore.Http;
 
-//namespace Alamut.Utilities.AspNet.Localization
+//namespace Alamut.AspNet.Localization
 //{
 //    /// <summary>
 //    /// provide culture result by subdomain

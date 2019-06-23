@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 // https://www.strathweb.com/2016/09/strongly-typed-configuration-in-asp-net-core-without-ioptionst/
-namespace Alamut.Utilities.AspNet.Configuration
+namespace Alamut.AspNet.Configuration
 {
     public static class ServiceCollectionExtensions
     {

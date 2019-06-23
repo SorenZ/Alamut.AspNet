@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Caching.Memory;
 
 // https://github.com/aspnet/Security/blob/22d2fe99c6fd9806b36025399a217a3a8b4e50f4/samples/CookieSessionSample/MemoryCacheTicketStore.cs
-namespace Alamut.Utilities.AspNet.Authentication
+namespace Alamut.AspNet.Authentication
 {
     public class MemoryCacheTicketStore : ITicketStore
     {

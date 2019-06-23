@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Alamut.Utilities.AspNet.Sut.Api
+namespace Alamut.AspNet.Sut.Api
 {
     [Route("api/[controller]/[action]")]
     [Produces("application/json")]

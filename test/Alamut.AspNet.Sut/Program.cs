@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Alamut.Utilities.AspNet.Sut
+namespace Alamut.AspNet.Sut
 {
     public class Program
     {
