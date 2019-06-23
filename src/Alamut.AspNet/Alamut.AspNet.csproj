@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>3.1.2</Version>
+    <Version>2.0</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Hamed ZVand</Authors>
     <Product>Alamut</Product>
-    <Description>Utilities and Extensions for AspNet Core</Description>
+    <Description>A set of tools, utilities, and extensions for ASP.NET Core</Description>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
