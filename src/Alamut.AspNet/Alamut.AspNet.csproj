@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>3.1.2</Version>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Hamed ZVand</Authors>
+    <Product>Alamut</Product>
+    <Description>Utilities and Extensions for AspNet Core</Description>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <PackageProjectUrl>https://github.com/sorenz/alamut.dotnet</PackageProjectUrl>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Alamut.Data" Version="3.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.0.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.0.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.*" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.0.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+  
+  
+</Project>
