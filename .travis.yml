@@ -2,7 +2,7 @@ language: csharp
 solution: ./Alamut.AspNet.sln
 dist: bionic
 mono: none
-dotnet: 2.2.105
+dotnet: 2.2.300
 install:
   - dotnet restore
 script:

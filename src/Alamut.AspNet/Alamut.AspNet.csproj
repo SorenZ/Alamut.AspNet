@@ -2,6 +2,7 @@
   <PropertyGroup>
     <Version>2.0</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
     <Authors>Hamed ZVand</Authors>
     <Product>Alamut</Product>
     <Description>A set of tools, utilities, and extensions for ASP.NET Core</Description>
