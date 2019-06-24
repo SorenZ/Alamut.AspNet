@@ -8,8 +8,8 @@ install:
 script:
   - dotnet build
   - dotnet test
-  - dotnet pack ./src/Alamut.AspNet/Alamut.AspNet.csproj --output ../../ --include-source  
-  - dotnet nuget push *.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json -Source https://api.nuget.org/v3/index.json
+  - dotnet pack ./src/Alamut.AspNet/Alamut.AspNet.csproj --output ../../ 
+  - dotnet nuget push *.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --source https://api.nuget.org/v3/index.json
 # deploy:
 #   provider: script
 #   script:
