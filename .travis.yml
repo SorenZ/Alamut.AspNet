@@ -9,7 +9,8 @@ script:
   - dotnet build
   - dotnet test
   - dotnet pack ./src/Alamut.AspNet/Alamut.AspNet.csproj --output ../../ 
-  - dotnet nuget push *.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json --source https://api.nuget.org/v3/index.json
+  - dotnet nuget push *.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json 
+#--source https://api.nuget.org/v3/index.json
 # deploy:
 #   provider: script
 #   script:
