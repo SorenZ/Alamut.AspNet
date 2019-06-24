@@ -1,9 +1,10 @@
 language: csharp
 solution: ./Alamut.AspNet.sln
-dist: trusty
+dist: bionic
 mono: none
-dotnet: 2.0.0
+dotnet: 2.2.105
 install:
   - dotnet restore
 script:
   - dotnet build
+  - dotnet test
