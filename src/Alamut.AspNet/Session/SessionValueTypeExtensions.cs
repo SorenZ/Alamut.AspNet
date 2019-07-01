@@ -8,66 +8,6 @@ namespace Alamut.AspNet.Session
     /// </summary>
     public static class SessionValueTypeExtensions 
     {
-
-        /// <summary>
-        /// Set the given key and value (only value-type) in the current session
-        /// </summary>
-        /// <param name="session"></param>
-        /// <param name="key">the session key</param>
-        /// <param name="value">the session value</param>
-        public static void Set(this ISession session, string key, object value)
-        {
-            switch (value)
-                {
-                    case bool v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case char v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case double v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case short v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case int v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case long v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case float v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case ushort v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case uint v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case ulong v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case DateTime v:
-                    session.Set(key, BitConverter.GetBytes(v.Ticks));
-                    return;
-
-                    default:
-                        throw new NotSupportedException($"value {value} of type {value.GetType()} does not supported :'(");
-                }
-        }
-
         /// <summary>
         /// Set the given key and value in the current session
         /// </summary>
