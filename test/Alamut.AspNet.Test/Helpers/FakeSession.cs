@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
 namespace Alamut.AspNet.Test.Helpers
 {
-    public class MockSession : ISession
+    public class FakeSession : ISession
     {
         private readonly Dictionary<string,byte[]> storage = new Dictionary<string, byte[]>();
 

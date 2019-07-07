@@ -11,7 +11,7 @@ namespace Alamut.AspNet.Test
 
         public AspNetRefTypeSessionExtensionsTest()
         {
-            _session = new MockSession();
+            _session = new FakeSession();
         }
 
         [Fact]
