@@ -6,8 +6,11 @@ namespace Alamut.AspNet.Test.Helpers
     {
         public int foo { get; set; }
         public string bar { get; set; }
+        public DateTime Created { get; set; }
 
-        public bool Equals(RefTypeObject other) => 
-            this.foo.Equals(other.foo) && bar.Equals(other.bar);
+        public bool Equals(RefTypeObject other) =>
+            foo.Equals(other.foo) && 
+                bar.Equals(other.bar) &&
+                Created.Equals(other.Created);
     }
 }
