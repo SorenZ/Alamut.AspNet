@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ namespace Alamut.AspNet.Caching
     /// <summary>
     /// implements missed distributed cache methods for ValueTypes with the help of MemoryStream
     /// </summary>
-    public static class DistributedCacheValueTypeExtenssions
+    public static class DistributedCacheValueTypeExtensions
     {
 
         public static async Task SetAsync(this IDistributedCache cache, string key, bool value,
