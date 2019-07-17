@@ -9,7 +9,7 @@ namespace Alamut.AspNet.Caching
         public static void Set<T>(this IDistributedCache cache,
             string key,
             T value,
-            DistributedCacheEntryOptions options)
+            DistributedCacheEntryOptions options) where T : class
         {
             //cache.Set(key, value.ToBson(), options);
             // cache.SetString(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
@@ -20,7 +20,7 @@ namespace Alamut.AspNet.Caching
 
         public static async Task SetAsync<T>(this IDistributedCache cache,
             string key,
-            T value)
+            T value) where T : class
         {
             await SetAsync(cache, key, value, new DistributedCacheEntryOptions());
         }
@@ -28,11 +28,10 @@ namespace Alamut.AspNet.Caching
         public static async Task SetAsync<T>(this IDistributedCache cache,
             string key,
             T value,
-            DistributedCacheEntryOptions options)
+            DistributedCacheEntryOptions options) where T : class
         {
             //return cache.SetAsync(key, value.ToBson(), options);
             // await cache.SetStringAsync(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
-
             await cache.SetAsync(key,
                 MessagePackSerializer.Serialize(value, MessagePack.Resolvers.ContractlessStandardResolver.Instance),
                 options);
@@ -48,7 +47,7 @@ namespace Alamut.AspNet.Caching
 
         }
 
-        public static bool TryGet<T>(this IDistributedCache cache, string key, out T returnValue)
+        public static bool TryGet<T>(this IDistributedCache cache, string key, out T returnValue) 
             where T : class
         {
             returnValue = null;
