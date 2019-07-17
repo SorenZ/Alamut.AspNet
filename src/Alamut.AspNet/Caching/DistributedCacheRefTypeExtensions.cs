@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using MessagePack;
 using Microsoft.Extensions.Caching.Distributed;
 
 namespace Alamut.AspNet.Caching
@@ -11,7 +12,10 @@ namespace Alamut.AspNet.Caching
             DistributedCacheEntryOptions options)
         {
             //cache.Set(key, value.ToBson(), options);
-            cache.SetString(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
+            // cache.SetString(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
+            cache.Set(key,
+                MessagePackSerializer.Serialize(value, MessagePack.Resolvers.ContractlessStandardResolver.Instance),
+                options);
         }
 
         public static async Task SetAsync<T>(this IDistributedCache cache,
@@ -27,52 +31,35 @@ namespace Alamut.AspNet.Caching
             DistributedCacheEntryOptions options)
         {
             //return cache.SetAsync(key, value.ToBson(), options);
-            await cache.SetStringAsync(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
+            // await cache.SetStringAsync(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
+
+            await cache.SetAsync(key,
+                MessagePackSerializer.Serialize(value, MessagePack.Resolvers.ContractlessStandardResolver.Instance),
+                options);
         }
 
         public static async Task<T> GetAsync<T>(this IDistributedCache cache, string key) where T : class
         {
-            //var val = await cache.GetAsync(key);
+             var val = await cache.GetAsync(key);
 
-            //return val == null
-            //    ? null
-            //    : BsonSerializer.Deserialize<T>(val);
+             return val == null
+                 ? null
+                 : MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
 
-            var val = await cache.GetStringAsync(key);
-
-            return val == null
-                ? null
-                : Newtonsoft.Json.JsonConvert.DeserializeObject<T>(val);
         }
-
-        //public static bool TryGet<T>(this IDistributedCache cache, string key, out T value)
-        //    where T : class
-        //{
-        //    var val = cache.Get(key);
-        //    value = null;
-
-        //    if (val == null)
-        //    {
-        //        return false;
-        //    }
-
-        //    value = BsonSerializer.Deserialize<T>(val);
-
-        //    return true;
-        //}
 
         public static bool TryGet<T>(this IDistributedCache cache, string key, out T returnValue)
             where T : class
         {
             returnValue = null;
-            var val = cache.GetString(key);
+            var val = cache.Get(key);
 
             if (val == null)
             {
                 return false;
             }
 
-            returnValue = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(val);
+            returnValue = MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
 
             return true;
         }
