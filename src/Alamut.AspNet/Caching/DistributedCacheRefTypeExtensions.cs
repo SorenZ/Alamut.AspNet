@@ -18,6 +18,15 @@ namespace Alamut.AspNet.Caching
                 options);
         }
 
+        public static T Get<T>(this IDistributedCache cache, string key) where T : class
+        {
+            var val = cache.Get(key);
+
+            return val == null
+                ? null
+                : MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+        }
+
         public static async Task SetAsync<T>(this IDistributedCache cache,
             string key,
             T value) where T : class
