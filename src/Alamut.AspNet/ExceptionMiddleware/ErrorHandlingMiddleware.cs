@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace Alamut.AspNet.ExceptionMiddleware
 {
     /// <summary>
-    /// provide custom error handling response for web api.
+    /// provide custom error handling response for Web API.
     /// </summary>
     public class ErrorHandlingMiddleware
     {
