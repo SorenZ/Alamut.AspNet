@@ -15,9 +15,11 @@ namespace Alamut.AspNet.Test.Helpers
             return storage[key];
         }
 
-        public Task<byte[]> GetAsync(string key, CancellationToken token = default)
+        public async Task<byte[]> GetAsync(string key, CancellationToken token = default)
         {
-            return Task.FromResult(storage[key]);
+            return storage.TryGetValue(key, out var value)
+                ? await Task.FromResult(value)
+                : await Task.FromResult((byte[])null);
         }
 
         public void Refresh(string key)
