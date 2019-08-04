@@ -71,5 +71,20 @@ namespace Alamut.AspNet.Caching
 
             return true;
         }
+
+        public static async Task<(bool exist, T returnValue)> TryGetAsync<T>(this IDistributedCache cache, string key)
+        {
+            var value = default(T);
+            
+            var val = await cache.GetAsync(key);
+            if (val == null)
+            {
+                return (false, value);
+            }
+
+            value = MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+
+            return (true, value);
+        }
     }
 }
