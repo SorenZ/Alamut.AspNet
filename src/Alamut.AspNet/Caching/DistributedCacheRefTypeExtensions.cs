@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using MessagePack;
 using Microsoft.Extensions.Caching.Distributed;
@@ -29,21 +30,24 @@ namespace Alamut.AspNet.Caching
 
         public static async Task SetAsync<T>(this IDistributedCache cache,
             string key,
-            T value) where T : class
+            T value,
+            CancellationToken token = default) where T : class
         {
-            await SetAsync(cache, key, value, new DistributedCacheEntryOptions());
+            await SetAsync(cache, key, value, new DistributedCacheEntryOptions(), token);
         }
 
         public static async Task SetAsync<T>(this IDistributedCache cache,
             string key,
             T value,
-            DistributedCacheEntryOptions options) where T : class
+            DistributedCacheEntryOptions options,
+            CancellationToken token = default)
         {
             //return cache.SetAsync(key, value.ToBson(), options);
             // await cache.SetStringAsync(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
             await cache.SetAsync(key,
                 MessagePackSerializer.Serialize(value, MessagePack.Resolvers.ContractlessStandardResolver.Instance),
-                options);
+                options,
+                token);
         }
 
         public static async Task<T> GetAsync<T>(this IDistributedCache cache, string key) where T : class
@@ -74,15 +78,13 @@ namespace Alamut.AspNet.Caching
 
         public static async Task<(bool exist, T returnValue)> TryGetAsync<T>(this IDistributedCache cache, string key)
         {
-            var value = default(T);
-            
             var val = await cache.GetAsync(key);
             if (val == null)
             {
-                return (false, value);
+                return (false, default(T));
             }
 
-            value = MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+            var value = MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
 
             return (true, value);
         }
