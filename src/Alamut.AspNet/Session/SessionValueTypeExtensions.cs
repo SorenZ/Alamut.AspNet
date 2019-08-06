@@ -8,65 +8,14 @@ namespace Alamut.AspNet.Session
     /// </summary>
     public static class SessionValueTypeExtensions 
     {
-
         /// <summary>
-        /// Set the given key and value (only value-type) in the current session
+        /// Set the given key and value in the current session
         /// </summary>
         /// <param name="session"></param>
         /// <param name="key">the session key</param>
         /// <param name="value">the session value</param>
-        public static void Set(this ISession session, string key, object value)
-        {
-            switch (value)
-                {
-                    case bool v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case char v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case double v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case short v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case int v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case long v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case float v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case ushort v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case uint v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case ulong v:
-                    session.Set(key, BitConverter.GetBytes(v));
-                    return;
-
-                    case DateTime v:
-                    session.Set(key, BitConverter.GetBytes(v.Ticks));
-                    return;
-
-                    default:
-                        throw new NotSupportedException($"value {value} of type {value.GetType()} does not supported :'(");
-                }
-        }
+        public static void Set(this ISession session,string key, bool value) =>
+            session.Set(key, BitConverter.GetBytes(value));
 
         /// <summary>
         /// Retrieve the value of the given key, if present.
@@ -78,6 +27,15 @@ namespace Alamut.AspNet.Session
                 : (bool?)null;
 
         /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, char value) =>
+            session.Set(key, BitConverter.GetBytes(value));
+
+        /// <summary>
         /// Retrieve the value of the given key, if present.
         /// otherwise, return null
         /// </summary>
@@ -85,6 +43,15 @@ namespace Alamut.AspNet.Session
             session.TryGetValue(key, out byte[] value)
                 ? BitConverter.ToChar(value, 0)
                 : (char?)null;
+
+        /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, double value) =>
+            session.Set(key, BitConverter.GetBytes(value));
 
         /// <summary>
         /// Retrieve the value of the given key, if present.
@@ -96,6 +63,15 @@ namespace Alamut.AspNet.Session
                 : (double?)null;
 
         /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, short value) =>
+            session.Set(key, BitConverter.GetBytes(value));
+
+        /// <summary>
         /// Retrieve the value of the given key, if present.
         /// otherwise, return null
         /// </summary>
@@ -103,6 +79,15 @@ namespace Alamut.AspNet.Session
             session.TryGetValue(key, out byte[] value)
                 ? BitConverter.ToInt16(value, 0)
                 : (short?)null;
+
+        /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, int value) =>
+            session.Set(key, BitConverter.GetBytes(value));
 
         /// <summary>
         /// Retrieve the value of the given key, if present.
@@ -114,6 +99,15 @@ namespace Alamut.AspNet.Session
                 : (int?)null;
 
         /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, long value) =>
+            session.Set(key, BitConverter.GetBytes(value));
+
+        /// <summary>
         /// Retrieve the value of the given key, if present.
         /// otherwise, return null
         /// </summary>
@@ -121,6 +115,15 @@ namespace Alamut.AspNet.Session
             session.TryGetValue(key, out byte[] value)
                 ? BitConverter.ToInt64(value, 0)
                 : (long?)null;
+
+        /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, float value) =>
+            session.Set(key, BitConverter.GetBytes(value));
 
         /// <summary>
         /// Retrieve the value of the given key, if present.
@@ -132,6 +135,15 @@ namespace Alamut.AspNet.Session
                 : (float?)null;
 
         /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, ushort value) =>
+            session.Set(key, BitConverter.GetBytes(value));
+
+        /// <summary>
         /// Retrieve the value of the given key, if present.
         /// otherwise, return null
         /// </summary>
@@ -140,6 +152,15 @@ namespace Alamut.AspNet.Session
                 ? BitConverter.ToUInt16(value, 0)
                 : (ushort?)null;
         
+        /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, uint value) =>
+            session.Set(key, BitConverter.GetBytes(value));
+
         /// <summary>
         /// Retrieve the value of the given key, if present.
         /// otherwise, return null
@@ -150,6 +171,15 @@ namespace Alamut.AspNet.Session
                 : (uint?)null;
 
         /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, ulong value) =>
+            session.Set(key, BitConverter.GetBytes(value));
+
+        /// <summary>
         /// Retrieve the value of the given key, if present.
         /// otherwise, return null
         /// </summary>
@@ -157,6 +187,15 @@ namespace Alamut.AspNet.Session
             session.TryGetValue(key, out byte[] value)
                 ? BitConverter.ToUInt64(value, 0)
                 : (ulong?)null;
+
+        /// <summary>
+        /// Set the given key and value in the current session
+        /// </summary>
+        /// <param name="session"></param>
+        /// <param name="key">the session key</param>
+        /// <param name="value">the session value</param>
+        public static void Set(this ISession session,string key, DateTime value) =>
+            session.Set(key, BitConverter.GetBytes(value.Ticks));
 
         /// <summary>
         /// Retrieve the value of the given key, if present.

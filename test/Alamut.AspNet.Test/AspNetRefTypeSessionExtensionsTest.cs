@@ -2,6 +2,7 @@ using Alamut.AspNet.Test.Helpers;
 using Microsoft.AspNetCore.Http;
 using Xunit;
 using Alamut.AspNet.Session;
+using System;
 
 namespace Alamut.AspNet.Test
 {
@@ -11,7 +12,7 @@ namespace Alamut.AspNet.Test
 
         public AspNetRefTypeSessionExtensionsTest()
         {
-            _session = new MockSession();
+            _session = new FakeSession();
         }
 
         [Fact]
@@ -22,7 +23,8 @@ namespace Alamut.AspNet.Test
             var expected = new RefTypeObject
             {
                 foo = 1,
-                bar = "test"
+                bar = "test", 
+                Created = DateTime.UtcNow
             };
             _session.Set(key, expected);
 
