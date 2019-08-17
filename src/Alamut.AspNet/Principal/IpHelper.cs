@@ -15,6 +15,11 @@ namespace Alamut.AspNet.Principal
             _httpContextAccessor = httpContextAccessor;
         }
 
+        /// <summary>
+        /// try to resolve client Ip address from headers 
+        /// </summary>
+        /// <param name="tryUseXForwardHeader"></param>
+        /// <returns>if couldn't found Ip return null</returns>
         public string GetRequestIp(bool tryUseXForwardHeader = true)
         {
             string ip = null;
@@ -30,10 +35,13 @@ namespace Alamut.AspNet.Principal
                 ip = GetHeaderValueAs<string>("X-Forwarded-For").SplitCsv().FirstOrDefault();
 
             if (ip.IsNullOrWhitespace())
-                ip = GetHeaderValueAs<string>("REMOTE_ADDR");
+                ip = _httpContextAccessor.HttpContext?.Connection?.RemoteIpAddress?.ToString();
 
             if (ip.IsNullOrWhitespace())
-                throw new Exception("Unable to determine caller's IP.");
+                ip = GetHeaderValueAs<string>("REMOTE_ADDR");
+
+            // if (ip.IsNullOrWhitespace())
+            //     throw new Exception("Unable to determine caller's IP.");
 
             return ip;
         }
