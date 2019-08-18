@@ -10,7 +10,7 @@ namespace Alamut.AspNet.Caching
         public static void Set<T>(this IDistributedCache cache,
             string key,
             T value,
-            DistributedCacheEntryOptions options) where T : class
+            DistributedCacheEntryOptions options)
         {
             //cache.Set(key, value.ToBson(), options);
             // cache.SetString(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
@@ -61,13 +61,12 @@ namespace Alamut.AspNet.Caching
         }
 
         public static bool TryGet<T>(this IDistributedCache cache, string key, out T returnValue) 
-            where T : class
         {
-            returnValue = null;
             var val = cache.Get(key);
 
             if (val == null)
             {
+                returnValue = default(T);
                 return false;
             }
 
