@@ -12,7 +12,10 @@ namespace Alamut.AspNet.Test.Helpers
 
         public byte[] Get(string key)
         {
-            return storage[key];
+            // return storage[key];
+            return storage.TryGetValue(key, out var value)
+                ? value
+                : null;
         }
 
         public async Task<byte[]> GetAsync(string key, CancellationToken token = default)

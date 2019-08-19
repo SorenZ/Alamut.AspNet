@@ -17,6 +17,31 @@ namespace Alamut.AspNet.Test
         }
 
         [Fact]
+        public void GetOrCreate_Test()
+        {
+            // arrange
+            const string key = "GetOrCreate_Test";
+            var expected = new RefTypeObject
+            {
+                foo = 1,
+                bar = "test", 
+                Created = DateTime.UtcNow
+            };
+            Func<RefTypeObject> factory = () =>
+            {
+                return expected;
+            };
+
+            // act
+            var cacheResult = _cache.GetOrCreate(key, factory);
+
+            // assert
+            Assert.Equal(expected, cacheResult);
+            Assert.Equal(expected, _cache.Get<RefTypeObject>(key));
+            
+        }
+
+        [Fact]
         public async void GetOrCreateAsync_Test()
         {
             // arrange

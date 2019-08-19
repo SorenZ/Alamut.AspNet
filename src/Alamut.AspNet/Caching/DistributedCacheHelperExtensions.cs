@@ -28,57 +28,6 @@ namespace Alamut.AspNet.Caching
             return value;
         }
 
-        // public static string GetOrCreateString(this IDistributedCache cache,
-        //     string key,
-        //     Func<string> factory,
-        //     TimeSpan? slidingExpiration = null,
-        //     TimeSpan? absoluteExpirationRelativeToNow = null,
-        //     DateTimeOffset? absoluteExpiration = null)
-        // {
-        //     var value = cache.GetString(key);
-        //     if (value != null)
-        //         { return value;}
-
-        //     value = factory();
-
-        //     cache.SetString(key, value, new DistributedCacheEntryOptions
-        //     {
-        //         AbsoluteExpirationRelativeToNow = absoluteExpirationRelativeToNow,
-        //         SlidingExpiration = slidingExpiration,
-        //         AbsoluteExpiration = absoluteExpiration
-        //     });
-
-        //     return value;
-        // }
-
-        // public static async Task<string> GetOrCreateStringAsync(this IDistributedCache cache,
-        //     string key,
-        //     Func<Task<string>> factory,
-        //     TimeSpan? slidingExpiration = null,
-        //     TimeSpan? absoluteExpirationRelativeToNow = null,
-        //     DateTimeOffset? absoluteExpiration = null)
-        // {
-
-        //     var value = cache.GetString(key);
-
-        //     if (value != null)
-        //         {return value;}
-
-        //     value = await factory();
-
-        //     if (value == null)
-        //         {return null;}
-
-        //     await cache.SetStringAsync(key, value, new DistributedCacheEntryOptions
-        //     {
-        //         AbsoluteExpirationRelativeToNow = absoluteExpirationRelativeToNow,
-        //         SlidingExpiration = slidingExpiration,
-        //         AbsoluteExpiration = absoluteExpiration
-        //     });
-
-        //     return value;
-        // }
-
         public static async Task<T> GetOrCreateAsync<T>(this IDistributedCache cache,
             string key,
             Func<Task<T>> factory,
