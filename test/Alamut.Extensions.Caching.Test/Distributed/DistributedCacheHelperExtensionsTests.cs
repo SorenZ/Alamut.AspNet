@@ -1,11 +1,11 @@
 using System;
-using Alamut.AspNet.Test.Helpers;
+using Alamut.Extensions.Caching.Test.Helpers;
 using Microsoft.Extensions.Caching.Distributed;
-using Alamut.AspNet.Caching;
 using System.Threading.Tasks;
 using Xunit;
+using Alamut.Extensions.Caching.Distributed;
 
-namespace Alamut.AspNet.Test
+namespace Alamut.Extensions.Caching.Test.Distributed
 {
     public class DistributedCacheHelperExtensionsTests
     {

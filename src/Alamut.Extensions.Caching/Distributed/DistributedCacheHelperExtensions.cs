@@ -1,8 +1,9 @@
 using System;
 using System.Threading.Tasks;
+
 using Microsoft.Extensions.Caching.Distributed;
 
-namespace Alamut.AspNet.Caching
+namespace Alamut.Extensions.Caching.Distributed
 {
     public static class DistributedCacheHelperExtensions
     {

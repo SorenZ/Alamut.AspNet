@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Microsoft.Extensions.Caching.Distributed;
 
-namespace Alamut.AspNet.Test.Helpers
+namespace Alamut.Extensions.Caching.Test.Helpers
 {
     public class FakeDistributedCache : IDistributedCache
     {

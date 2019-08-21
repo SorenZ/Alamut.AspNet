@@ -1,9 +1,11 @@
 using System.Threading;
 using System.Threading.Tasks;
-using MessagePack;
+
 using Microsoft.Extensions.Caching.Distributed;
 
-namespace Alamut.AspNet.Caching
+using MessagePack;
+
+namespace Alamut.Extensions.Caching.Distributed
 {
     public static class DistributedCacheRefTypeExtensions
     {
