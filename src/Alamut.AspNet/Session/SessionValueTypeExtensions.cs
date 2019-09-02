@@ -205,5 +205,7 @@ namespace Alamut.AspNet.Session
             session.TryGetValue(key, out byte[] value)
                 ? new DateTime(BitConverter.ToInt64(value, 0))
                 : (DateTime?)null;
+
+        
     }
 }

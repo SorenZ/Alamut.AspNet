@@ -23,7 +23,7 @@ namespace Alamut.AspNet.Test
             var expected = new RefTypeObject
             {
                 foo = 1,
-                bar = "test", 
+                bar = "test",
                 Created = DateTime.UtcNow
             };
             _session.Set(key, expected);
@@ -32,6 +32,26 @@ namespace Alamut.AspNet.Test
             var actual = _session.Get<RefTypeObject>(key);
 
             // assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void RefValue_TryGetValue()
+        {
+            //Given
+            const string key = "tryGetValue-test";
+            var expected = new RefTypeObject
+            {
+                foo = 1,
+                bar = "test",
+                Created = DateTime.UtcNow
+            };
+            _session.Set(key, expected);
+
+            //When
+            var result = _session.TryGetValue<RefTypeObject>(key, out var actual);
+
+            //Then
             Assert.Equal(expected, actual);
         }
     }
