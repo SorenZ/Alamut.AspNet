@@ -1,9 +1,7 @@
-using System;
 using MessagePack;
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 
-namespace Alamut.AspNet.Session
+namespace Alamut.Extensions.Session
 {
     public static class SessionRefTypeExtensions
     {
@@ -13,25 +11,27 @@ namespace Alamut.AspNet.Session
                 MessagePackSerializer.Serialize(value,
                     MessagePack.Resolvers.ContractlessStandardResolver.Instance));
 
-        public static T Get<T>(this ISession session, string key) 
+        public static T Get<T>(this ISession session, string key)
         {
             if (session.TryGetValue(key, out var value))
             {
-                return MessagePackSerializer.Deserialize<T>(value, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+                return MessagePackSerializer.Deserialize<T>(value,
+                    MessagePack.Resolvers.ContractlessStandardResolver.Instance);
             }
 
-            return default(T);
+            return default;
         }
 
-        public static bool TryGetValue<T>(this ISession session, string key, out T value) 
+        public static bool TryGetValue<T>(this ISession session, string key, out T value)
         {
             if (session.TryGetValue(key, out var internalValue))
             {
-                value = MessagePackSerializer.Deserialize<T>(internalValue, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+                value = MessagePackSerializer.Deserialize<T>(internalValue,
+                    MessagePack.Resolvers.ContractlessStandardResolver.Instance);
                 return true;
             }
 
-            value = default(T);
+            value = default;
             return false;
         }
     }

@@ -1,8 +1,10 @@
-using Alamut.AspNet.Test.Helpers;
-using Microsoft.AspNetCore.Http;
-using Xunit;
-using Alamut.AspNet.Session;
 using System;
+using Microsoft.AspNetCore.Http;
+
+using Xunit;
+
+using Alamut.Extensions.Session;
+using Alamut.AspNet.Test.Helpers;
 
 namespace Alamut.AspNet.Test
 {

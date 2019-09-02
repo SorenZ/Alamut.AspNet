@@ -1,10 +1,10 @@
-﻿using Alamut.AspNet.Test.Helpers;
+﻿using System;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.DependencyInjection;
+
 using Xunit;
-using Alamut.AspNet.Session;
-using System;
+
+using Alamut.Extensions.Session;
+using Alamut.AspNet.Test.Helpers;
 
 namespace Alamut.AspNet.Test
 {
@@ -15,21 +15,6 @@ namespace Alamut.AspNet.Test
         public AspNetValueTypeSessionExtensionsTests()
         {
             _session = new FakeSession();
-        }
-
-        [Fact]
-        public void ValueType_SessionExtensions_Get_and_Set_Value()
-        {
-            // arrange 
-            var key = "foo-value";
-            var expected = "bar";
-
-            // act
-            _session.SetString(key, expected);
-            var actual = _session.GetString(key);
-
-            // assert 
-            Assert.Equal(expected, actual);
         }
 
         [Fact]
