@@ -14,8 +14,8 @@ namespace Alamut.Extensions.Caching.Distributed
             TimeSpan? absoluteExpirationRelativeToNow = null,
             DateTimeOffset? absoluteExpiration = null)
         {
-            if (cache.TryGet(key, out T value))
-                { return value; }
+            if (cache.TryGet(key, out T value)) 
+            { return value; }
 
             value = factory();
 
@@ -37,15 +37,15 @@ namespace Alamut.Extensions.Caching.Distributed
             DateTimeOffset? absoluteExpiration = null) 
         {
 
-            var result = await cache.TryGetAsync<T>(key);
+            var (exist, returnValue) = await cache.TryGetAsync<T>(key);
 
-            if (result.exist)
-                { return result.returnValue; }
+            if (exist)
+            { return returnValue; }
 
             var value = await factory();
 
             if (value == null)
-                { return value; }
+            { return default; }
 
             await cache.SetAsync(key, value, new DistributedCacheEntryOptions
             {

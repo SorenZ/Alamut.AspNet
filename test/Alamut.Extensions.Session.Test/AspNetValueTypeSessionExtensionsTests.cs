@@ -3,10 +3,9 @@ using Microsoft.AspNetCore.Http;
 
 using Xunit;
 
-using Alamut.Extensions.Session;
-using Alamut.AspNet.Test.Helpers;
+using Alamut.Extensions.Session.Test.Helpers;
 
-namespace Alamut.AspNet.Test
+namespace Alamut.Extensions.Session.Test
 {
     public class AspNetValueTypeSessionExtensionsTests
     {
@@ -37,7 +36,7 @@ namespace Alamut.AspNet.Test
         {
             // arrange 
             var key = "foo-bool";
-            var expected = true;
+            const bool expected = true;
 
             // act
             _session.Set(key, expected);

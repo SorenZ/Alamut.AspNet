@@ -41,7 +41,7 @@ namespace Alamut.AspNet.TextMiddleware
     }
 
     #region ExtensionMethod
-    public static class TextValidatiorExtension
+    public static class TextValidatorExtension
     {
         public static IApplicationBuilder ApplyTextValidation(this IApplicationBuilder app)
         {

@@ -2,11 +2,9 @@ using System;
 using Microsoft.AspNetCore.Http;
 
 using Xunit;
+using Alamut.Extensions.Session.Test.Helpers;
 
-using Alamut.Extensions.Session;
-using Alamut.AspNet.Test.Helpers;
-
-namespace Alamut.AspNet.Test
+namespace Alamut.Extensions.Session.Test
 {
     public class AspNetRefTypeSessionExtensionsTest
     {
@@ -54,6 +52,7 @@ namespace Alamut.AspNet.Test
             var result = _session.TryGetValue<RefTypeObject>(key, out var actual);
 
             //Then
+            Assert.True(result);
             Assert.Equal(expected, actual);
         }
     }

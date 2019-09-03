@@ -3,21 +3,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace Alamut.AspNet.Test.Helpers
+namespace Alamut.Extensions.Session.Test.Helpers
 {
     public class FakeSession : ISession
     {
-        private readonly Dictionary<string,byte[]> storage = new Dictionary<string, byte[]>();
+        private readonly Dictionary<string,byte[]> _storage = new Dictionary<string, byte[]>();
 
         public bool IsAvailable => throw new System.NotImplementedException();
 
         public string Id => throw new System.NotImplementedException();
 
-        public IEnumerable<string> Keys => storage.Keys;
+        public IEnumerable<string> Keys => _storage.Keys;
 
         public void Clear()
         {
-            storage.Clear();
+            _storage.Clear();
         }
 
         public Task CommitAsync(CancellationToken cancellationToken = default)
@@ -32,17 +32,17 @@ namespace Alamut.AspNet.Test.Helpers
 
         public void Remove(string key)
         {
-            storage.Remove(key);
+            _storage.Remove(key);
         }
 
         public void Set(string key, byte[] value)
         {
-            storage.Add(key,value);
+            _storage.Add(key,value);
         }
 
         public bool TryGetValue(string key, out byte[] value)
         {
-            return storage.TryGetValue(key, out value);
+            return _storage.TryGetValue(key, out value);
         }
     }
 }
