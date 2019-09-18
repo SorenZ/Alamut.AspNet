@@ -4,21 +4,24 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
 
 using MessagePack;
+using MessagePack.Resolvers;
 
 namespace Alamut.Extensions.Caching.Distributed
 {
     public static class DistributedCacheRefTypeExtensions
     {
+        static DistributedCacheRefTypeExtensions()
+        {
+            CompositeResolver.RegisterAndSetAsDefault(
+            new[] { NativeDateTimeResolver.Instance, ContractlessStandardResolver.Instance });
+        }
+
         public static void Set<T>(this IDistributedCache cache,
             string key,
             T value,
             DistributedCacheEntryOptions options)
         {
-            //cache.Set(key, value.ToBson(), options);
-            // cache.SetString(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
-            cache.Set(key,
-                MessagePackSerializer.Serialize(value, MessagePack.Resolvers.ContractlessStandardResolver.Instance),
-                options);
+            cache.Set(key, MessagePackSerializer.Serialize(value), options);
         }
 
         public static T Get<T>(this IDistributedCache cache, string key) where T : class
@@ -27,7 +30,7 @@ namespace Alamut.Extensions.Caching.Distributed
 
             return val == null
                 ? null
-                : MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+                : MessagePackSerializer.Deserialize<T>(val);
         }
 
         public static async Task SetAsync<T>(this IDistributedCache cache,
@@ -44,25 +47,23 @@ namespace Alamut.Extensions.Caching.Distributed
             DistributedCacheEntryOptions options,
             CancellationToken token = default)
         {
-            //return cache.SetAsync(key, value.ToBson(), options);
-            // await cache.SetStringAsync(key, Newtonsoft.Json.JsonConvert.SerializeObject(value), options);
             await cache.SetAsync(key,
-                MessagePackSerializer.Serialize(value, MessagePack.Resolvers.ContractlessStandardResolver.Instance),
+                MessagePackSerializer.Serialize(value),
                 options,
                 token);
         }
 
         public static async Task<T> GetAsync<T>(this IDistributedCache cache, string key) where T : class
         {
-             var val = await cache.GetAsync(key);
+            var val = await cache.GetAsync(key);
 
-             return val == null
-                 ? null
-                 : MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+            return val == null
+                ? null
+                : MessagePackSerializer.Deserialize<T>(val);
 
         }
 
-        public static bool TryGet<T>(this IDistributedCache cache, string key, out T returnValue) 
+        public static bool TryGet<T>(this IDistributedCache cache, string key, out T returnValue)
         {
             var val = cache.Get(key);
 
@@ -72,7 +73,7 @@ namespace Alamut.Extensions.Caching.Distributed
                 return false;
             }
 
-            returnValue = MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+            returnValue = MessagePackSerializer.Deserialize<T>(val);
 
             return true;
         }
@@ -85,7 +86,7 @@ namespace Alamut.Extensions.Caching.Distributed
                 return (false, default(T));
             }
 
-            var value = MessagePackSerializer.Deserialize<T>(val, MessagePack.Resolvers.ContractlessStandardResolver.Instance);
+            var value = MessagePackSerializer.Deserialize<T>(val);
 
             return (true, value);
         }

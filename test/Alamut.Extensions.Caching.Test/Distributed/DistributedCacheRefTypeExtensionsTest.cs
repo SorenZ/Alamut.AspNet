@@ -24,8 +24,8 @@ namespace Alamut.Extensions.Caching.Test.Distributed
             var expected = new RefTypeObject
             {
                 foo = 1,
-                bar = "test", 
-                Created = DateTime.UtcNow
+                bar = "test",
+                Created = DateTime.Now
             };
             _cache.Set(key, expected, new DistributedCacheEntryOptions());
 
@@ -44,8 +44,8 @@ namespace Alamut.Extensions.Caching.Test.Distributed
             var expected = new RefTypeObject
             {
                 foo = 1,
-                bar = "test", 
-                Created = DateTime.UtcNow
+                bar = "test",
+                Created = DateTime.Now
             };
             await _cache.SetAsync(key, expected, new DistributedCacheEntryOptions());
 
