@@ -17,7 +17,7 @@ namespace Alamut.Extensions.Caching.Test.Distributed
         }
 
         [Fact]
-        public void RefType_Sync_Get_Set()
+        public void RefTypeExtensions_SyncMethodSet_GetExpected()
         {
             // arrange
             const string key = "RefType_Sync_Get_Set";
@@ -37,7 +37,7 @@ namespace Alamut.Extensions.Caching.Test.Distributed
         }
 
         [Fact]
-        public async void RefType_ASync_Get_Set()
+        public async void RefTypeExtensions_ASyncMethodSet_GetExpected()
         {
             // arrange
             const string key = "RefType_ASync_Get_Set";

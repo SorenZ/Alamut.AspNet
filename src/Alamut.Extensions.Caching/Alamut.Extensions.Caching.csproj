@@ -5,7 +5,7 @@
     <LangVersion>latest</LangVersion>
     
     <PackageId>Alamut.Extensions.Caching</PackageId>
-    <Version>0.9.0</Version>
+    <Version>0.9.1</Version>
     <Authors>Hamed ZVand</Authors>
     <Product>Alamut</Product>
     <Description>Distributed Cache Helpers and Extensions powered by MessagePack</Description>

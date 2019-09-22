@@ -17,7 +17,7 @@ namespace Alamut.Extensions.Caching.Test.Distributed
         }
 
         [Fact]
-        public void GetOrCreate_Test()
+        public void DistributedCacheHelperExtensions_GetOrCreate_GetExpected()
         {
             // arrange
             const string key = "GetOrCreate_Test";
@@ -42,7 +42,7 @@ namespace Alamut.Extensions.Caching.Test.Distributed
         }
 
         [Fact]
-        public async void GetOrCreateAsync_Test()
+        public async void DistributedCacheHelperExtensions_AsyncGetOrCreate_GetExpected()
         {
             // arrange
             const string key = "GetOrCreateAsync_Test";
