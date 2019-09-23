@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <PackageId>Alamut.AspNet.DependencyInjection</PackageId>
+    <Version>0.0.2</Version>
+    <Authors>Hamed ZVand</Authors>
+    <Product>Alamut</Product>
+    <Description>Dependency Inejection Extensions for Alamut.AspNet</Description>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <PackageProjectUrl>https://github.com/SorenZ/Alamut.AspNet</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIconUrl>https://sorenz.github.io/alamut-256.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Alamut.Abstractions" Version="0.0.3" />
+    <PackageReference Include="Alamut.AspNet" Version="2.0.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
