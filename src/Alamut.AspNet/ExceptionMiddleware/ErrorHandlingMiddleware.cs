@@ -31,7 +31,7 @@ namespace Alamut.AspNet.ExceptionMiddleware
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "an unhandled exception occured");
+                _logger.LogError(ex, "an unhandled exception occurred");
                 await HandleExceptionAsync(context, ex);
             }
         }
