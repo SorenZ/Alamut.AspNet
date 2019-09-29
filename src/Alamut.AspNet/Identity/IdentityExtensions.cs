@@ -1,14 +1,16 @@
 ﻿using System.Linq;
-using Alamut.Data.Structure;
+
 using Microsoft.AspNetCore.Identity;
+
+using Alamut.Abstractions.Structure;
 
 namespace Alamut.AspNet.Identity
 {
     public static class IdentityExtensions
     {
-        public static ServiceResult AsServiceResult(this IdentityResult source)
+        public static Result AsResult(this IdentityResult source)
         {
-            return new ServiceResult
+            return new Result
             {
                 Succeed = source.Succeeded,
                 Message = source.Succeeded
@@ -17,9 +19,9 @@ namespace Alamut.AspNet.Identity
             };
         }
 
-        public static ServiceResult<T> AsServiceResult<T>(this IdentityResult source, T data)
+        public static Result<T> AsResult<T>(this IdentityResult source, T data)
         {
-            return new ServiceResult<T>
+            return new Result<T>
             {
                 Data = data,
                 Succeed = source.Succeeded,

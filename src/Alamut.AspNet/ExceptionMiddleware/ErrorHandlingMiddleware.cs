@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Alamut.AspNet.Http;
-using Alamut.Data.Structure;
+using Alamut.Abstractions.Structure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -54,7 +54,7 @@ namespace Alamut.AspNet.ExceptionMiddleware
         {
             var code = StatusCodes.Status500InternalServerError; // 500 if unexpected
             // var serviceResult = ServiceResult.Exception(ex);
-            var serviceResult = new ServiceResult
+            var serviceResult = new Result
             {
                 Succeed = false,
                 Message = ex.Message
