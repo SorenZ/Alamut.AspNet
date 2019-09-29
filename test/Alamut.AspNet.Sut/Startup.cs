@@ -48,7 +48,7 @@ namespace Alamut.AspNet.Sut
             services.AddScoped(sp =>
             {
                 return sp.GetService<IHttpContextAccessor>().HttpContext.Session;
-            });
+            }); 
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -69,11 +69,15 @@ namespace Alamut.AspNet.Sut
             //     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             //     app.UseHsts();
             // }
-            app.UseServiceResultException(justHandleAjaxCall : true);
+            app.UseStaticFiles();
+            
+            
             app.UseExceptionHandler("/Error");
+            app.UseApiExceptionHandler(new ApiExceptionHandlerOptions{ HandleAjaxCallOnly = false});
+            // app.UseStatusCodePagesWithReExecute()
             
             // app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            
             app.UseCookiePolicy();
             app.UseSession();
             app.UseMvc();
