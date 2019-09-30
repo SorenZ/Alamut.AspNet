@@ -71,7 +71,10 @@ namespace Alamut.AspNet.ExceptionMiddleware
             
             context.Response.Clear();
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = result.StatusCode;
+            context.Response.StatusCode = 
+                (result is Abstractions.Structure.Result rsl) 
+                    ? rsl.StatusCode 
+                    : StatusCodes.Status500InternalServerError;
 
             return context.Response.WriteAsync(JsonConvert.SerializeObject(result));
         }
