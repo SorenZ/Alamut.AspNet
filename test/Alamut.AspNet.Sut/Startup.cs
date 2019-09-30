@@ -73,8 +73,11 @@ namespace Alamut.AspNet.Sut
             
             
             app.UseExceptionHandler("/Error");
-            app.UseApiExceptionHandler(new ApiExceptionHandlerOptions());
-            // app.UseStatusCodePagesWithReExecute()
+            app.UseApiExceptionHandler(new ApiExceptionHandlerOptions
+            {
+                HandleAjaxCallOnly = true
+            });
+            
             
             // app.UseHttpsRedirection();
             
