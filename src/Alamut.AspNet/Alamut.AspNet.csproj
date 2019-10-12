@@ -8,9 +8,11 @@
     <Authors>Hamed ZVand</Authors>
     <Product>Alamut</Product>
     <Description>A set of tools, utilities, and extensions for ASP.NET Core</Description>
+    
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    
     <PackageProjectUrl>https://github.com/SorenZ/Alamut.AspNet</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIconUrl>https://sorenz.github.io/alamut-256.png</PackageIconUrl>
