@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Alamut.Abstractions" Version="0.0.3" />
+    <PackageReference Include="Alamut.Abstractions" Version="0.0.6" />
     <PackageReference Include="Alamut.AspNet" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
   </ItemGroup>
