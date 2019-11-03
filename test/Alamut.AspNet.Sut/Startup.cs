@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Alamut.AspNet.Configuration;
+using Alamut.AspNet.Sut.Models;
 
 namespace Alamut.AspNet.Sut
 {
@@ -53,7 +55,7 @@ namespace Alamut.AspNet.Sut
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-
+            services.AddPoco<Foo>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
