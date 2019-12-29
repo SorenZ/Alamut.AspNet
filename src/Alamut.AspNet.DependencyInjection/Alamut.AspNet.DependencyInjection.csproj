@@ -8,13 +8,19 @@
     <Authors>Hamed ZVand</Authors>
     <Product>Alamut</Product>
     <Description>Dependency Inejection Extensions for Alamut.AspNet</Description>
+    
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+
     <PackageProjectUrl>https://github.com/SorenZ/Alamut.AspNet</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIconUrl>https://sorenz.github.io/alamut-256.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="images\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Alamut.Abstractions" Version="0.0.9" />
