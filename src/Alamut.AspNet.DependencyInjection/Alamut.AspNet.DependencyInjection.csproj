@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 
     <PackageId>Alamut.AspNet.DependencyInjection</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Authors>Hamed ZVand</Authors>
     <Product>Alamut</Product>
     <Description>Dependency Inejection Extensions for Alamut.AspNet</Description>
@@ -17,8 +17,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Alamut.Abstractions" Version="0.0.6" />
-    <PackageReference Include="Alamut.AspNet" Version="*" />
+    <PackageReference Include="Alamut.Abstractions" Version="0.0.9" />
+    <PackageReference Include="Alamut.AspNet" Version="2.2.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
